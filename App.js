@@ -1,42 +1,82 @@
-import React from 'react';
-import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
-import Constants from 'expo-constants';
+import React, { Component } from 'react';
+import { StyleSheet, View, Button, Text, TouchableOpacity} from 'react-native';
+ 
+export default class vai extends Component {
+ 
+  constructor(){
+ 
+    super();
+ 
+    this.state={
+ 
+      Color_boton:'red'
+ 
+    }
+  }
+ 
+  Set_Color=()=>{
+ 
+    this.setState({
+ 
+      Color_boton:'blue'
+ 
+    })
+ 
+  }
+ 
+ render() {
+ 
+   return (
+ 
+      <View style={styles.MainContainer}>
+ 
+        <View style={styles.actions}>
 
 
+        <TouchableOpacity style={styles.action } 
+        onPress={this.Set_Color}
+        >
+        <Text style={ [ styles.TextStyle, { color: this.state.Color_boton } ] }>Teste</Text>
+        </TouchableOpacity>
 
-export default function App() {
- function mudar(){
-	color='red'
- }
-  return (
-    <SafeAreaView style={styles.container}>
-      <View>
-       
-      
-        <View style={styles.fixToText}>
-          <Button 
-            color='blue'
-            title="Teste"
-            onPress={mudar}
-          />
-          
         </View>
+        
+       
+        
       </View>
-    </SafeAreaView>
-  );
+         
+      
+   );
+ }
 }
-
+ 
 const styles = StyleSheet.create({
-    container: {
-    flex: 1,
-    justifyContent: 'center', 
-  },
+ 
+  MainContainer :{
+      
+      flex:1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
   
-  fixToText: {
-    flexDirection: 'row',
+  },
+ 
+  TextStyle:{
+    color:'#E02041',
+    fontSize:30
+     
+      
+ 
+  },
+  actions:{
+    flexDirection:'row',
     justifyContent: 'center', 
     alignItems: 'center'
+
   },
   
+
+  
+
  
 });
